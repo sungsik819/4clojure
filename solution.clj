@@ -37,14 +37,43 @@
 
 (myreverse [1 2 3 4 5])
 
+;; other - into
+(defn myreverse2 [x]
+  (into '() x))
+
+(myreverse2 [1 2 3 4 5])
+
+;; problem 24 - Sum It All Up
+(defn mysum [x]
+  (apply + x))
+
+(mysum [1 2 3])
+(mysum (list 0 -2 5 5))
+(mysum #{4 2 1})
+
+;; other - loop recur
+(defn mysum2 [x]
+  (loop [result 0 coll x]
+    (if (empty? coll) result
+        (recur (+ result (first coll)) (rest coll)))))
+
+(mysum2 [1 2 3])
+;; problem 27 - Palindrome Detector
+(defn palindrome? [x]
+  (= x (reverse x)))
+
+(palindrome? '(1 2 3 4 5))
+
 ;; problem 28 - Flatten a Sequence
 (defn myflatten [x]
-  (cond (not (sequential? x)) (list x)
+  (cond (not (coll? x)) (list x)
         (empty? x) nil
         :else (concat (myflatten (first x)) (myflatten (rest x)))))
 
 (myflatten ["a" ["b"] "c"])
-;; problem 30
+(myflatten '((1 2) 3 [4 [5 6]]))
+
+;; problem 30 - Compress a Sequence
 (defn du [l]
   (loop [li [] li2 l]
     (cond (empty? li2) li
@@ -55,7 +84,15 @@
 (du [1 1 2 3 3 2 2 3])
 (du [[1 2] [1 2] [3 4] [1 2]])
 
+;; other - partition
+
+;; problem 31 - Pack a Sequence
 (partition-by list [1 1 3 1 1])
+
+;; problem 32 - Duplicate a Sequence
+(mapcat (fn [x] (list x x)) [1 2 3])
+(mapcat (fn [x] (list x x)) [:a :a :b :b])
+(mapcat (fn [x] (list x x)) [[1 2] [3 4]])
 
 ;;problem 38
 (defn mymax [x & xs]
@@ -64,7 +101,14 @@
           (> big (first ls)) (recur (rest ls) big)
           :else (recur (rest ls) (first ls)))))
 
+;; other - reduce
+(defn mymax2 [& xs]
+  (reduce #(if (> % %2) % %2) xs))
+
+(mymax2 45 67 11)
+
 ;; problem 39
+(map list [1 2 3] [:a :b :c])
 (mapcat list [1 2 3] [:a :b :c])
 
 ;; problem 40
@@ -73,7 +117,7 @@
 
 (myinterleave 0 [1 2 3])
 
-;; problem 41 - 배수 값 제거
+;; problem 41 - Drop Every Nth Item
 (defn mydropitem [x y]
   (keep-indexed #(if (not= (mod (+ %1 1) y) 0) %2) x))
 
@@ -82,6 +126,9 @@
   (apply * (range 1 (inc x))))
 
 (myfact 8)
+
+;; problem 43 - Reverse Interleave
+
 ;; problem 44
 (take -2 [1 2 3 4 5])
 ;; problem 45
@@ -94,7 +141,7 @@
 
 ((fu nth) 2 [1 2 3 4 5])
 
-;; problem 48
+;; problem 48 - Intro to some
 (some #{2 7 6} [5 6 7 8])
 (some #(when (even? %) %) [5 6 7 8])
 
@@ -103,9 +150,6 @@
    (list (take n l) (drop n l)))
 
 (mysplit-at 2 [[1 2] [3 4] [5 6]])
-
-;; best
-((juxt take drop) 3 [1 2 3 4 5 6])
 
 ;; problem 50
 (defn problem50 [l]
@@ -128,6 +172,16 @@
                           (conj acc num))) [] coll))
 
 (mydistinct [1 2 1 3 1 2 4])
+
+;; problem 59 - Juxtaposition
+(defn myjuxt [a b &[c]]
+  (fn [& x]
+    (if c
+      (vector (apply a x) (apply b x) (apply c x))
+      (vector (apply a x) (apply b x)))))
+
+((myjuxt + max min) 2 3 5 1 6 4)
+    
 ;; problem 62
 (defn iter [f x]
   (lazy-seq (cons x (iter f (f x)))))
@@ -136,6 +190,14 @@
    
 
 (take 5 (iter #(* 2 %) 1))
+
+;; problem 63 - Group Sequence - ing
+
+(defn my-group-by [f coll]
+  (map f coll))
+
+(my-group-by #(> % 5) [1 3 6 8])
+(my-group-by #(apply / %) [[1 2] [2 4] [4 6] [3 6]])
 ;; problem 66
 (defn gcd [x y]
   (if (= y 0) x
@@ -151,6 +213,9 @@
 ;; (mapcat (fn [x] (map (fn [y] (if (= x y) y)) b)) a) => 같은 숫자가 있으면 그 숫자 표시 없으면 nil 표시
 ;; (set (sort (filter (fn [x] (not (nil? x))) => nil인 항목은 제외하고 sort 후 set 으로 만든다.
 (inter #{0 1 2 3} #{2 3 4 5})
+
+;; problem 88 - Symmetric Difference
+
 ;; problem 90 - Cartesian Product
 (defn cartp [a b]
   (into #{} (mapcat (fn [x] (map (fn [y] (vector x y)) b)) a)))
@@ -172,6 +237,34 @@
     (apply * (take x (iterate identity y)))))
 
 ((sq 2) 16)
+
+;; problem 118 - Re-implement Map
+;; not lazy
+(defn mymap [f coll]
+  (reduce (fn [acc x] (conj acc (f x))) [] coll))
+
+;; solved
+(defn mymap [f coll]
+ (if (seq coll) (lazy-seq (cons (f (first coll)) (mymap f (rest coll))))))
+  
+(mymap inc [2 3 4 5 6])
+
+(->> (mymap inc (range))
+     (drop (dec 1000000))
+     (take 2))
+
+;; problem 122 - Read a binary number
+(defn mybinary [num]
+  (Long/parseLong "111" 2))
+
+;; problem 126 - Through the Looking Class
+(class Class)
+;; problem 143 - dot product
+(defn dot-product [coll1 coll2]
+  (apply + (map * coll1 coll2)))
+
+(dot-product [0 1 0] [1 0 0])
+(dot-product [2 5 6] [100 10 1])
 ;; problem 145
 (for [x (range 40)
       :when (= 1 (rem x 4))]
@@ -187,3 +280,6 @@
   (mapcat (fn [x] { x k }) l))
 
 (mycat 0 [:a :b :c])
+
+;; problem 157 - Indexing Sequences
+(keep-indexed #(vector %2 %1) [0 1 3])
