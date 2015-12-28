@@ -129,8 +129,10 @@
 
 ;; problem 43 - Reverse Interleave
 
-;; problem 44
-(take -2 [1 2 3 4 5])
+;; problem 44 - Rotate Sequence
+(concat [1 2 3 4 5] [1 2 3 4 5])
+(take (count [1 2 3 4 5] (drop (mod 2 (count [1 2 3 4 5])) (cycle [1 2 3 4 5]))
+             
 ;; problem 45
 (take 5 (iterate #(+ 3 %) 1))
 ;; problem 46
@@ -151,11 +153,7 @@
 
 (mysplit-at 2 [[1 2] [3 4] [5 6]])
 
-;; problem 50
-(defn problem50 [l]
-  (vector (rest l)))
-
-(set (problem50 [1 :a 2 :b 3 :c]))
+;; problem 50 - Split by Type
 
 ;; problem 51
 (defn le [x]
@@ -164,6 +162,14 @@
 
 (le 2)
 
+;; problem 54 - Partition a Sequence
+(defn mypartition [x coll]
+  (loop [result [] coll2 coll]
+    (if (> x (count coll2)) result
+        (recur (conj result (take x coll2)) (drop x coll2)))))
+
+(mypartition 3 (range 9))
+(mypartition 3 (range 8))
 ;; problem 56 - Find Distinct Items
 (some true? (map #(= % 1) [2 3 1 4]))
 
@@ -172,6 +178,7 @@
                           (conj acc num))) [] coll))
 
 (mydistinct [1 2 1 3 1 2 4])
+;; problem 58 - Function Composition
 
 ;; problem 59 - Juxtaposition
 (defn myjuxt [a b &[c]]
@@ -191,10 +198,9 @@
 
 (take 5 (iter #(* 2 %) 1))
 
-;; problem 63 - Group Sequence - ing
-
+;; problem 63 - Group Sequence - 다시 풀어보기
 (defn my-group-by [f coll]
-  (map f coll))
+  (into {} (map #(vector (f (first %)) (vec %)) (partition-by f (sort coll)))))
 
 (my-group-by #(> % 5) [1 3 6 8])
 (my-group-by #(apply / %) [[1 2] [2 4] [4 6] [3 6]])
@@ -215,6 +221,13 @@
 (inter #{0 1 2 3} #{2 3 4 5})
 
 ;; problem 88 - Symmetric Difference
+(apply disj #{1 2 3 4 5 6} #{1 3 5 7})
+(apply disj #{1 3 5 7} #{1 2 3 4 5 6})
+(defn symdiff [set1 set2]
+  (set (concat (apply disj set1 set2) (apply disj set2 set1))))
+
+(symdiff #{1 2 3 4 5 6} #{1 3 5 7})
+(symdiff #{:a :b :c} #{})
 
 ;; problem 90 - Cartesian Product
 (defn cartp [a b]
@@ -222,7 +235,9 @@
 
 (cartp #{1 2 3} #{4 5})
 (= (cartp #{1 2 3} #{4 5})  #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]})
-         
+
+;; problem 97 - Pascal's Triangle
+
 ;; problem 99 - Product Digits
 (#(map (fn [x] (Integer/parseInt (str x))) (str (* %1 %2))) 99 9)
 
@@ -259,6 +274,13 @@
 
 ;; problem 126 - Through the Looking Class
 (class Class)
+
+;; problem 135 - Infix Calculator
+(defn calc [num & [coll]]
+  (if (empty? coll) num
+      (calc ((first coll) num (second coll)) (drop 2 coll))))
+ 
+(calc 2 + 5 + 2)
 ;; problem 143 - dot product
 (defn dot-product [coll1 coll2]
   (apply + (map * coll1 coll2)))
