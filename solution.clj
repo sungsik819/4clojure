@@ -237,18 +237,21 @@
 (= (cartp #{1 2 3} #{4 5})  #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]})
 
 ;; problem 95 - To Tree, or not to Tree
-
+(partition 2 1 [0 1 0])
 ;; problem 97 - Pascal's Triangle
 (defn pascaltriangle [n]
   (if (= n 1) [1]
       (into [] (concat [1] (map #(apply + %) (partition 2 1 (pascaltriangle (- n 1)))) [1]))))
 
-(concat [1] [2] [1])
-(vector [0 1] [1 0])
-(pascaltriangle 2)
-(map pascaltriangle (range 1 6))
-(concat [0 1] [1 1] [1 0])
-(partition 2 1 (vector [0 1] [0 1]))
+;; other
+(defn pascaltriangle2 [n]
+  (if (= n 1) [1]
+      (into [] (map #(apply + %) (partition 2 1 (concat [0] (pascaltriangle2 (- n 1)) [0]))))))
+
+;; 파스칼 삼각형은 실제로 0 1 0에서 출발한다. 하지만 1 일때는 1로 출력되어야하므로 [1]이 된다.
+;; 양 끝에 값이 1인 이유는 0 1 ~ 1 0 으로 되므로 각각 더하게 되면 1 ~ 1 로 된다
+
+(pascaltriangle2 11)
 
 ;; problem 99 - Product Digits
 (#(map (fn [x] (Integer/parseInt (str x))) (str (* %1 %2))) 99 9)
