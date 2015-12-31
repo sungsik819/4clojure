@@ -236,7 +236,19 @@
 (cartp #{1 2 3} #{4 5})
 (= (cartp #{1 2 3} #{4 5})  #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]})
 
+;; problem 95 - To Tree, or not to Tree
+
 ;; problem 97 - Pascal's Triangle
+(defn pascaltriangle [n]
+  (if (= n 1) [1]
+      (into [] (concat [1] (map #(apply + %) (partition 2 1 (pascaltriangle (- n 1)))) [1]))))
+
+(concat [1] [2] [1])
+(vector [0 1] [1 0])
+(pascaltriangle 2)
+(map pascaltriangle (range 1 6))
+(concat [0 1] [1 1] [1 0])
+(partition 2 1 (vector [0 1] [0 1]))
 
 ;; problem 99 - Product Digits
 (#(map (fn [x] (Integer/parseInt (str x))) (str (* %1 %2))) 99 9)
@@ -276,11 +288,20 @@
 (class Class)
 
 ;; problem 135 - Infix Calculator
-(defn calc [num & [coll]]
+(defn test1 [num & coll]
+  (empty? coll))
+
+(test1 1)
+(defn calc135 [num & coll]
   (if (empty? coll) num
-      (calc ((first coll) num (second coll)) (drop 2 coll))))
- 
-(calc 2 + 5 + 2)
+      (calc135 ((first coll) num (second coll)))))
+
+(defn f [n & x]
+  (reduce (fn [acc x] ((first x) acc (second x))) n (partition 2 x)))
+
+(f 20 / 2 + 2 + 4 + 8 - 6 - 10 * 9)
+(calc135 2 + 5)
+(f 2 + 5)
 ;; problem 143 - dot product
 (defn dot-product [coll1 coll2]
   (apply + (map * coll1 coll2)))
