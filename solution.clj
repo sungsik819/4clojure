@@ -237,7 +237,12 @@
 (= (cartp #{1 2 3} #{4 5})  #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]})
 
 ;; problem 95 - To Tree, or not to Tree
-(partition 2 1 [0 1 0])
+(defn problem95 [col]
+  (or (nil? col)
+      (and (coll? col)
+           (= 3 (count col))
+           (every? problem95 (rest col)))))
+
 ;; problem 97 - Pascal's Triangle
 (defn pascaltriangle [n]
   (if (= n 1) [1]
