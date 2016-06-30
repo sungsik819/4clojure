@@ -188,7 +188,7 @@
       (vector (apply a x) (apply b x)))))
 
 ((myjuxt + max min) 2 3 5 1 6 4)
-    
+
 ;; problem 62
 (defn iter [f x]
   (lazy-seq (cons x (iter f (f x)))))
@@ -243,6 +243,8 @@
            (= 3 (count col))
            (every? problem95 (rest col)))))
 
+;; other
+
 ;; problem 97 - Pascal's Triangle
 (defn pascaltriangle [n]
   (if (= n 1) [1]
@@ -287,6 +289,16 @@
 (->> (mymap inc (range))
      (drop (dec 1000000))
      (take 2))
+;; problem 120 - Sum of square of digits
+(range 10)
+
+(defn sum-of-square [x y]
+  (+ (* x x) (* y y)))
+
+(defn is-smaller-then-sum-of-square [x y]
+  (if (< x (sum-of-square x y)) true false))
+
+(is-smaller-then-sum-of-square 2 0)
 
 ;; problem 122 - Read a binary number
 (defn mybinary [num]
