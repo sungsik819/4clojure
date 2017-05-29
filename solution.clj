@@ -1,12 +1,19 @@
 ;; problem 21 - Nth Element
 (defn mynth [coll cnt]
-  (first (drop cnt '(4 5 6 7))))
+  (first (drop cnt coll)))
 
 (mynth '(4 5 6 7) 2)
 
 ;; other
 (defn mynth2 [coll cnt]
   (if (= cnt 0) (first x) (mynth2 (rest x) (- cnt 1))))
+
+;; other 2
+;; reduce
+(defn my-nth [coll cnt]
+  (reduce (fn [acc x] x) (reverse (drop cnt coll))))
+
+(my-nth '(4 5 6 7) 1)
 
 ;; problem 22 - Count a Sequence
 ;; reduce
@@ -32,10 +39,10 @@
 (mylast (range 100))
 
 ;; problem 23 - Reverse a Sequence
-(defn myreverse [x]
+(defn my-reverse [x]
   (reduce (fn [acc e] (conj acc e)) '() x))
 
-(myreverse [1 2 3 4 5])
+(my-reverse [1 2 3 4 5])
 
 ;; other - into
 (defn myreverse2 [x]
@@ -80,9 +87,12 @@
           (not= (last li) (first li2)) (recur (conj li (first li2)) (rest li2))
           :else (recur li (rest li2)))))
 
-(apply str (du "Leeeeeerrroyyy"))
+(apply str (du2 "Leeeeeerrroyyy"))
 (du [1 1 2 3 3 2 2 3])
 (du [[1 2] [1 2] [3 4] [1 2]])
+
+(defn du2 [coll]
+  (map last (partition-by identity coll)))
 
 ;; other - partition
 
@@ -112,10 +122,10 @@
 (mapcat list [1 2 3] [:a :b :c])
 
 ;; problem 40
-(defn myinterleave [value y]
-  (butlast (mapcat (fn [x] (list x value)) y)))
+(defn my-interpose [x coll]
+  (rest (mapcat #(list x %) coll)))
 
-(myinterleave 0 [1 2 3])
+(my-interpose 0 [1 2 3])
 
 ;; problem 41 - Drop Every Nth Item
 (defn mydropitem [x y]
