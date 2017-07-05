@@ -1,3 +1,41 @@
+;; problem 1 - Nothing but the Truth
+(= true true)
+
+;; problem 2 - Simple Math
+(* 2 2)
+
+;; problem 3 - Intro to Strings
+(.toUpperCase "hello world")
+
+;; problem 4 - Intro to Lists
+:a :b :c
+
+;; problem 5 - Lists: conj
+'(1 2 3 4)
+
+;; problem 6 - Intro to Vectors
+:a :b :c
+
+;; problem 7 - Vectors: conj
+[1 2 3 4]
+
+;; problem 8 - Intro to Sets
+#{:a :b :c :d}
+
+;; problem 9 - Sets: conj
+2
+
+;; problem 10 - Intro to Maps
+20
+
+;; problem 11 - Maps: conj
+[:b 2]
+
+;; problem 12 - Intro to Sequences
+(= 3 (first '(3 2 1)))
+(= 3 (second [2 3 4]))
+(= 3 (last (list 1 2 3)))
+
 ;; problem 21 - Nth Element
 (defn mynth [coll cnt]
   (first (drop cnt coll)))
