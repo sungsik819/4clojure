@@ -36,6 +36,30 @@
 (= 3 (second [2 3 4]))
 (= 3 (last (list 1 2 3)))
 
+;; problem 13 - Sequences: rest
+[20 30 40]
+
+;; problem 14 - Intro to Functions
+8
+
+;; problem 15 - Double Down
+#(* % 2)
+
+;; problem 16 - Hello World
+#(str "Hello, " % "!")
+
+;; problem 17 - Sequences: map
+'(6 7 8)
+
+;; problem 18 - Sequences: filter
+'(6 7)
+
+;; problem 19 - Last Element
+#(first (reverse %))
+
+;; problem 20 - Penultimate Element
+#(second (reverse %))
+
 ;; problem 21 - Nth Element
 (defn mynth [coll cnt]
   (first (drop cnt coll)))
@@ -103,6 +127,17 @@
         (recur (+ result (first coll)) (rest coll)))))
 
 (mysum2 [1 2 3])
+
+;; problem 25 - Find the odd numbers
+#(filter odd? %)
+
+;; problem 26 - Fibonacci Sequence
+(fn [x]
+  (loop [li [1 1] cnt 2]
+    (if (= cnt x) li
+        (recur (conj li (+ (last li) (last (take (- (count li) 1) li)))) (+ cnt 1)))))
+
+
 ;; problem 27 - Palindrome Detector
 (defn palindrome? [x]
   (= x (reverse x)))
@@ -117,6 +152,9 @@
 
 (myflatten ["a" ["b"] "c"])
 (myflatten '((1 2) 3 [4 [5 6]]))
+
+;; problem 29 - Get the Caps
+(fn [s] (apply str (filter #(Character/isUpperCase %) s)))
 
 ;; problem 30 - Compress a Sequence
 (defn du [l]
@@ -141,6 +179,27 @@
 (mapcat (fn [x] (list x x)) [1 2 3])
 (mapcat (fn [x] (list x x)) [:a :a :b :b])
 (mapcat (fn [x] (list x x)) [[1 2] [3 4]])
+
+;; problem 33 - Replicate a Sequence
+(fn [x y] (mapcat #(repeat y %) x))
+
+;; problem 34 - Implement range
+(fn [x y]
+  (loop [lis [] cnt x]
+    (if (= cnt y) (seq lis)
+        (recur (conj lis cnt) (+ cnt 1)))))
+
+;; other
+#(take (- %2 %) (iterate inc %))
+
+;; problem 35 - Local bindings
+7
+
+;; problem 36 - Let it Be
+[x 7, y 3, z 1]
+
+;; problem 37 - Regular Expressions
+"ABC"
 
 ;;problem 38
 (defn mymax [x & xs]
@@ -338,8 +397,9 @@
      (drop (dec 1000000))
      (take 2))
 ;; problem 120 - Sum of square of digits
-(range 10)
+(count (filter #(= true %) (map #(< % (* % %)) (range 10))))
 
+(map #(str %) (range 12))
 (defn sum-of-square [x y]
   (+ (* x x) (* y y)))
 
