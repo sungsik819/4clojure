@@ -396,8 +396,48 @@
 (->> (mymap inc (range))
      (drop (dec 1000000))
      (take 2))
+
 ;; problem 120 - Sum of square of digits
+;; 0 1 2 3  4  5  6  7  8  9
+;; 0 1 4 9 16 25 36 49 64 81 => 8
+;; 10 11 12 13 14 15 16 17 18 19 20
+;;  1  2  5 10 17 26 37 50 65 82 4 => 6
+;; 21 22 23 24 25 26 27 28 29 30
+;;  5  8 13 20 29 40 53 68 85 9 => 5
 (count (filter #(= true %) (map #(< % (* % %)) (range 10))))
+
+(map #(read-string (str %)) (str 11))
+
+(defn mysquare [x]
+  (map #(* % %) (map (comp read-string str) (str x))))
+
+(count
+  (filter #(= true %)
+          (map #(< % (reduce + (mysquare %)))
+               (range 1000))))
+
+;; solution - start
+(count
+ (filter (fn [x] (= true x))
+         (map (fn [y]
+                (< y (reduce +
+                             (map (fn [z] (* z z))
+                                  (map (comp read-string str)
+                                       (str y))))))
+              (range 1000))))
+;; solution - end
+
+(defn mysolution [x]
+  (count 
+    (filter #(= true %)
+            (map #(< % (reduce + (mysquare %)))
+                 x))))
+
+(mysolution (range 1000))
+
+
+
+(reduce + (map (comp read-string str) (str 11)))
 
 (map #(str %) (range 12))
 (defn sum-of-square [x y]
@@ -454,3 +494,6 @@
 
 ;; problem 157 - Indexing Sequences
 (keep-indexed #(vector %2 %1) [0 1 3])
+
+;; problem 173 - Intro to Destructuring 2
+x y
