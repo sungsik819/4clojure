@@ -455,7 +455,7 @@
 ;; problem 126 - Through the Looking Class
 (class Class)
 
-;; problem 128
+;; problem 128 - Recognize Playing Cards
 ;; DQ => {:suit :diamond :rank 10}
 ;; H5 => {:suit :heart :rank 3}
 ;; CA => {:suit :club :rank 12}
