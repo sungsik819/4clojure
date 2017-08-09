@@ -455,6 +455,65 @@
 ;; problem 126 - Through the Looking Class
 (class Class)
 
+;; problem 128
+;; DQ => {:suit :diamond :rank 10}
+;; H5 => {:suit :heart :rank 3}
+;; CA => {:suit :club :rank 12}
+;; 2 3 4 5 6 7 8 9 10 J Q  K  A
+;; 0 1 2 3 4 5 6 7  8 9 10 11 12
+;; - DQ를 어떻게 하면 분리 할 수 있을까?
+;; - D, H, C, S를 :diamond, :heart, :club, :spade로 어떻게 표시할까?
+;; - 2 ~ A를 0 ~ 12로 어떻게 표시 할까?
+;; - {:suit :diamond :rank 10}의 형태로 어떻게 만들까?
+(let [card "CA"]
+  (cond
+    (= card "DQ") {:suit :diamond :rank 10}
+    (= card "H5") {:suit :heart :rank 3}
+    (= card "CA") {:suit :club :rank 12}))
+
+(merge {:suit :diamond :rank 10} {:suit :heart :rank 3})
+(first (map (comp str read-string str) "DQ"))
+(last (map (comp str read-string str) "DQ"))
+
+(defn mysolution [x]
+  (let [seq (map (comp str read-string str) x)
+        card (first seq)
+        rank (last seq)]
+    {:suit ({"D" :diamond
+             ,"H" :heart
+             ,"C" :club
+             ,"S" :spade } card) :rank ({"2" 0,
+                                         "3" 1,
+                                         "4" 2,
+                                         "5" 3,
+                                         "6" 4,
+                                         "7" 5,
+                                         "8" 6,
+                                         "9" 7,
+                                         "T" 8,
+                                         "J" 9,
+                                         "Q" 10,
+                                         "K" 11,
+                                         "A" 12
+                                         } rank)}))
+
+(defn maximental's-solution [[c r]]
+  (let [card {\D :diamond \H :heart \C :club \S :spade }
+        rank {\2 0 \3 1 \4 2 \5 3 \6 4
+              \7 5 \8 6 \9 7 \T 8 \J 9
+              \Q 10 \K 11 \A 12}]
+    {:suit (card c) :rank (rank r)}))
+
+(defn mycard [x]
+  (let [card x]
+    (cond
+      (= card "DQ") {:suit :diamond :rank 10}
+      (= card "H5") {:suit :heart :rank 3}
+      (= card "CA") {:suit :club :rank 12})))
+
+(map (comp :rank mysolution str) ["S2" "S3" "S4" "S5" "S6" "S7"
+                                  "S8" "S9" "ST" "SJ" "SQ" "SK" "SA"])
+
 ;; problem 135 - Infix Calculator
 (defn test1 [num & coll]
   (empty? coll))
