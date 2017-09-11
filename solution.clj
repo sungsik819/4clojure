@@ -371,6 +371,10 @@
 (#(map (fn [x] (Integer/parseInt (str x))) (str (* %1 %2))) 99 9)
 
 ;; problem 100 - Least Common Multiple
+(* 2 3)
+(* 5 3 7)
+(* 1/3 2/5)
+(* 3/4 1/6)
 
 
 ;; problem 107
