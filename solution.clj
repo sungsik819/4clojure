@@ -579,7 +579,7 @@
 
 ;;problem 156
 (defn mycat [k l]
-  (mapcat (fn [x] { x k }) l))
+  (apply assoc {} (interleave l (repeat k))))
 
 (mycat 0 [:a :b :c])
 
