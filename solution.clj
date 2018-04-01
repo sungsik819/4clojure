@@ -371,10 +371,30 @@
 (#(map (fn [x] (Integer/parseInt (str x))) (str (* %1 %2))) 99 9)
 
 ;; problem 100 - Least Common Multiple
-(* 2 3)
-(* 5 3 7)
-(* 1/3 2/5)
-(* 3/4 1/6)
+;; 각 수의 곱 / 최대 공약수 = 최소 공배수
+(defn gcd [x y]
+  (let [a (max x y)
+        b (min x y)
+        m (mod a b)]
+    (if (zero? m) b
+        (gcd b m))))
+
+(defn lcm [a b]
+  (/ (* a b) (gcd a b)))
+
+(reduce lcm [3/4 1/6])
+
+(fn [& args]
+  (letfn [(gcd [x y]
+            (let [a (max x y)
+                  b (min x y)
+                  m (mod a b)]
+              (if (zero? m) b
+                  (recur b m))))
+          (lcm [a b]
+            (/ (* a b) (gcd a b)))]
+    (reduce lcm args)))
+
 
 
 ;; problem 107
@@ -539,7 +559,8 @@
 
 (dot-product [0 1 0] [1 0 0])
 (dot-product [2 5 6] [100 10 1])
-;; problem 145
+
+;; problem 145 - For the win
 (for [x (range 40)
       :when (= 1 (rem x 4))]
   x)
@@ -548,6 +569,10 @@
       :let [z (inc x)]
       :while (< z 40)]
   z)
+
+;; solution
+(->> (range 40)
+     (filter #(= 1 (rem % 4))))
 
 ;;problem 156
 (defn mycat [k l]
