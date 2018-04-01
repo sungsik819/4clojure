@@ -538,6 +538,9 @@
 (map (comp :rank mysolution str) ["S2" "S3" "S4" "S5" "S6" "S7"
                                   "S8" "S9" "ST" "SJ" "SQ" "SK" "SA"])
 
+;; problem 134 - A nil key
+#(= (% %2 false) nil)
+
 ;; problem 135 - Infix Calculator
 (defn test1 [num & coll]
   (empty? coll))
