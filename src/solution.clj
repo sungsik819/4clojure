@@ -1,82 +1,3 @@
-;; problem 1 - Nothing but the Truth
-(= true true)
-
-;; problem 2 - Simple Math
-(* 2 2)
-
-;; problem 3 - Intro to Strings
-(.toUpperCase "hello world")
-
-;; problem 4 - Intro to Lists
-:a :b :c
-
-;; problem 5 - Lists: conj
-'(1 2 3 4)
-
-;; problem 6 - Intro to Vectors
-:a :b :c
-
-;; problem 7 - Vectors: conj
-[1 2 3 4]
-
-;; problem 8 - Intro to Sets
-#{:a :b :c :d}
-
-;; problem 9 - Sets: conj
-2
-
-;; problem 10 - Intro to Maps
-20
-
-;; problem 11 - Maps: conj
-[:b 2]
-
-;; problem 12 - Intro to Sequences
-(= 3 (first '(3 2 1)))
-(= 3 (second [2 3 4]))
-(= 3 (last (list 1 2 3)))
-
-;; problem 13 - Sequences: rest
-[20 30 40]
-
-;; problem 14 - Intro to Functions
-8
-
-;; problem 15 - Double Down
-#(* % 2)
-
-;; problem 16 - Hello World
-#(str "Hello, " % "!")
-
-;; problem 17 - Sequences: map
-'(6 7 8)
-
-;; problem 18 - Sequences: filter
-'(6 7)
-
-;; problem 19 - Last Element
-#(first (reverse %))
-
-;; problem 20 - Penultimate Element
-#(second (reverse %))
-
-;; problem 21 - Nth Element
-(defn mynth [coll cnt]
-  (first (drop cnt coll)))
-
-(mynth '(4 5 6 7) 2)
-
-;; other
-(defn mynth2 [coll cnt]
-  (if (= cnt 0) (first x) (mynth2 (rest x) (- cnt 1))))
-
-;; other 2
-;; reduce
-(defn my-nth [coll cnt]
-  (reduce (fn [acc x] x) (reverse (drop cnt coll))))
-
-(my-nth '(4 5 6 7) 1)
-
 ;; problem 22 - Count a Sequence
 ;; reduce
 (defn mycount [x]
@@ -91,14 +12,6 @@
         cnt)))
 
 (mycount2 '(1 2 3 3 1))
-
-;; last 구현
-(defn mylast [x]
-  (reduce (fn [acc e] e) x))
-
-(mylast [1 2 3 4])
-(mylast (range 10))
-(mylast (range 100))
 
 ;; problem 23 - Reverse a Sequence
 (defn my-reverse [x]
