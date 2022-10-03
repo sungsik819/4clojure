@@ -1,34 +1,3 @@
-;; problem 23 - Reverse a Sequence
-(defn my-reverse [x]
-  (reduce (fn [acc e] (conj acc e)) '() x))
-
-(my-reverse [1 2 3 4 5])
-
-;; other - into
-(defn myreverse2 [x]
-  (into '() x))
-
-(myreverse2 [1 2 3 4 5])
-
-;; problem 24 - Sum It All Up
-(defn mysum [x]
-  (apply + x))
-
-(mysum [1 2 3])
-(mysum (list 0 -2 5 5))
-(mysum #{4 2 1})
-
-;; other - loop recur
-(defn mysum2 [x]
-  (loop [result 0 coll x]
-    (if (empty? coll) result
-        (recur (+ result (first coll)) (rest coll)))))
-
-(mysum2 [1 2 3])
-
-;; problem 25 - Find the odd numbers
-#(filter odd? %)
-
 ;; problem 26 - Fibonacci Sequence
 (fn [x]
   (loop [li [1 1] cnt 2]
