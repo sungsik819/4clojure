@@ -1,18 +1,3 @@
-;; problem 22 - Count a Sequence
-;; reduce
-(defn mycount [x]
-  (reduce (fn [acc e] (inc acc)) 0 x))
-
-(mycount '(1 2 3 3 1))
-
-;; loop-recur
-(defn mycount2 [x]
-  (loop [cnt 0 coll x]
-    (if (seq coll) (recur (inc cnt) (rest coll))
-        cnt)))
-
-(mycount2 '(1 2 3 3 1))
-
 ;; problem 23 - Reverse a Sequence
 (defn my-reverse [x]
   (reduce (fn [acc e] (conj acc e)) '() x))
