@@ -1,6 +1,8 @@
 (ns problem24)
 
 ;; problem 24 - Sum It All Up
+;; blog-url : https://sungsik819.github.io/posts/2019-10-27-4clojure-24.html
+
 ;; (= (__ [1 2 3]) 6)
 ;; (= (__ (list 0 -2 5 5)) 8)
 ;; (= (__ #{4 2 1}) 7)

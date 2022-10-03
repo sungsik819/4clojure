@@ -1,6 +1,8 @@
 (ns problem22)
 
 ;; problem 22 - Count a Sequence
+;; blog-url : https://sungsik819.github.io/posts/2019-10-25-4clojure-22.html
+
 ;; (= (__ '(1 2 3 3 1)) 5)
 ;; (= (__ "Hello World") 11)
 ;; (= (__ [[1 2] [3 4] [5 6]]) 3)
