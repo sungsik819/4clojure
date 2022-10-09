@@ -1,14 +1,3 @@
-;; problem 31 - Pack a Sequence
-(partition-by list [1 1 3 1 1])
-
-;; problem 32 - Duplicate a Sequence
-(mapcat (fn [x] (list x x)) [1 2 3])
-(mapcat (fn [x] (list x x)) [:a :a :b :b])
-(mapcat (fn [x] (list x x)) [[1 2] [3 4]])
-
-;; problem 33 - Replicate a Sequence
-(fn [x y] (mapcat #(repeat y %) x))
-
 ;; problem 34 - Implement range
 (fn [x y]
   (loop [lis [] cnt x]
