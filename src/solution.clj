@@ -1,34 +1,3 @@
-;; problem 34 - Implement range
-(fn [x y]
-  (loop [lis [] cnt x]
-    (if (= cnt y) (seq lis)
-        (recur (conj lis cnt) (+ cnt 1)))))
-
-;; other
-#(take (- %2 %) (iterate inc %))
-
-;; problem 35 - Local bindings
-7
-
-;; problem 36 - Let it Be
-[x 7, y 3, z 1]
-
-;; problem 37 - Regular Expressions
-"ABC"
-
-;;problem 38
-(defn mymax [x & xs]
-  (loop [ls xs big x]
-    (cond (empty? ls) big
-          (> big (first ls)) (recur (rest ls) big)
-          :else (recur (rest ls) (first ls)))))
-
-;; other - reduce
-(defn mymax2 [& xs]
-  (reduce #(if (> % %2) % %2) xs))
-
-(mymax2 45 67 11)
-
 ;; problem 39
 (map list [1 2 3] [:a :b :c])
 (mapcat list [1 2 3] [:a :b :c])
