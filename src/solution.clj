@@ -1,17 +1,3 @@
-;; problem 39
-(map list [1 2 3] [:a :b :c])
-(mapcat list [1 2 3] [:a :b :c])
-
-;; problem 40
-(defn my-interpose [x coll]
-  (rest (mapcat #(list x %) coll)))
-
-(my-interpose 0 [1 2 3])
-
-;; problem 41 - Drop Every Nth Item
-(defn mydropitem [x y]
-  (keep-indexed #(if (not= (mod (+ %1 1) y) 0) %2) x))
-
 ;; problem 42 - Factorial Fun
 (defn myfact [x]
   (apply * (range 1 (inc x))))
