@@ -1,7 +1,7 @@
 (ns problem27)
 
 ;; problem 27 - Palindrome Detector
-;; blog-url : https://sungsik819.github.io/posts/2019-10-30-4clojure-27.html
+;; blog-url : https://sungsik819.github.io/posts/4clojure/problem-27/
 
 ;; (false? (__ '(1 2 3 4 5)))
 ;; (true? (__ "racecar"))

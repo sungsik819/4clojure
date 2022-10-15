@@ -1,7 +1,7 @@
 (ns problem28)
 
 ;; problem 28 - Flatten a Sequence
-;; blog-url : https://sungsik819.github.io/posts/2019-10-31-4clojure-28.html
+;; blog-url : https://sungsik819.github.io/posts/4clojure/problem-28/
 
 ;; (= (__ '((1 2) 3 [4 [5 6]])) '(1 2 3 4 5 6))
 ;; (= (__ ["a" ["b"] "c"]) '("a" "b" "c"))

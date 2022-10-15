@@ -1,7 +1,7 @@
 (ns problem39)
 
 ;; problem 39
-;; blug-url : https://sungsik819.github.io/posts/2019-11-11-4clojure-39.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-39/
 
 ;; (= (__ [1 2 3] [:a :b :c]) '(1 :a 2 :b 3 :c))
 ;; (= (__ [1 2] [3 4 5 6]) '(1 3 2 4))

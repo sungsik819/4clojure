@@ -1,7 +1,7 @@
 (ns problem26)
 
 ;; problem 26 - Fibonacci Sequence
-;; blog-url : https://sungsik819.github.io/posts/2019-10-29-4clojure-26.html
+;; blog-url : https://sungsik819.github.io/posts/4clojure/problem-26/
 
 ;; (= (__ 3) '(1 1 2))
 ;; (= (__ 6) '(1 1 2 3 5 8))

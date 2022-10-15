@@ -1,7 +1,7 @@
 (ns problem36)
 
 ;; problem 36 - Let it Be
-;; blug-url : https://sungsik819.github.io/posts/2019-11-08-4clojure-36.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-36/
 
 ;; (= 10 (let __ (+ x y)))
 ;; (= 4 (let __ (+ y z)))

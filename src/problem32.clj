@@ -1,7 +1,7 @@
 (ns problem32)
 
 ;; problem 32 - Duplicate a Sequence
-;; blug-url : https://sungsik819.github.io/posts/2019-11-04-4clojure-32.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-32/
 
 ;; (= (__ [1 2 3]) '(1 1 2 2 3 3))
 ;; (= (__ [:a :a :b :b]) '(:a :a :a :a :b :b :b :b))

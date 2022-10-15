@@ -1,7 +1,7 @@
 (ns problem30)
 
 ;; problem 30 - Compress a Sequence
-;; blog-url : https://sungsik819.github.io/posts/2019-11-02-4clojure-30.html
+;; blog-url : https://sungsik819.github.io/posts/4clojure/problem-30/
 
 ;; (= (apply str (__ "Leeeeeerrroyyy")) "Leroy")
 ;; (= (__ [1 1 2 3 3 2 2 3]) '(1 2 3 2 3))

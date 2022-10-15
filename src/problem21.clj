@@ -1,7 +1,7 @@
 (ns problem21)
 
 ;; problem 21 - Nth Element
-;; blog-url : https://sungsik819.github.io/posts/2019-10-24-4clojure-21.html
+;; blog-url : https://sungsik819.github.io/posts/4clojure/problem-21/
 
 ;; (= (__ '(4 5 6 7) 2) 6)
 ;; (= (__ [:a :b :c] 0) :a)

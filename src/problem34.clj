@@ -2,7 +2,7 @@
 
 
 ;; problem 34 - Implement range
-;; blug-url : https://sungsik819.github.io/posts/2019-11-06-4clojure-34.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-34/
 
 ;; (= (__ 1 4) '(1 2 3))
 ;; (= (__ -2 2) '(-2 -1 0 1))

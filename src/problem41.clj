@@ -1,7 +1,7 @@
 (ns problem41)
 
 ;; problem 41 - Drop Every Nth Item
-;; blug-url : https://sungsik819.github.io/posts/2019-11-13-4clojure-41.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-41/
 
 ;; (= (__ [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8])
 ;; (= (__ [:a :b :c :d :e :f] 2) [:a :c :e])

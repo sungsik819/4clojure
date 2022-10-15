@@ -1,7 +1,7 @@
 (ns problem29)
 
 ;; problem 29 - Get the Caps
-;; blog-url : https://sungsik819.github.io/posts/2019-11-01-4clojure-29.html
+;; blog-url : https://sungsik819.github.io/posts/4clojure/problem-29/
 
 ;; (= (__ "HeLlO, WoRlD!") "HLOWRD")
 ;; (empty? (__ "nothing"))

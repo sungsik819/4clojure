@@ -1,7 +1,7 @@
 (ns problem19)
 
 ;; problem 19 - Last Element
-;; blug-url : https://sungsik819.github.io/posts/2019-10-22-4clojure-19.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-19/
 
 ;; (= (__ [1 2 3 4 5]) 5)
 ;; (= (__ '(5 4 3)) 3)

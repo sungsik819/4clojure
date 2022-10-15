@@ -1,7 +1,7 @@
 (ns problem38)
 
 ;;problem 38
-;; blug-url : https://sungsik819.github.io/posts/2019-11-10-4clojure-38.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-38/
 
 ;; (= (__ 1 8 3 4) 8)
 ;; (= (__ 30 20) 30)

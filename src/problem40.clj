@@ -1,7 +1,7 @@
 (ns problem40)
 
 ;; problem 40 - Interpose a Seq
-;; blug-url : https://sungsik819.github.io/posts/2019-11-12-4clojure-40.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-40/
 
 ;; (= (__ 0 [1 2 3]) [1 0 2 0 3])
 ;; (= (apply str (__ ", " ["one" "two" "three"])) "one, two, three")

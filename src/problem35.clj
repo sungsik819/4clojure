@@ -1,7 +1,7 @@
 (ns problem35)
 
 ;; problem 35 - Local bindings
-;; blug-url : https://sungsik819.github.io/posts/2019-11-07-4clojure-35.html
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-35/
 
 ;; (= __ (let [x 5] (+ 2 x)))
 ;; (= __ (let [x 3, y 10] (- y x)))

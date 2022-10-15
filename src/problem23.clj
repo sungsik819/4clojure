@@ -1,7 +1,7 @@
 (ns problem23)
 
 ;; problem 23 - Reverse a Sequence
-;; blog-url : https://sungsik819.github.io/posts/2019-10-26-4clojure-23.html
+;; blog-url : https://sungsik819.github.io/posts/4clojure/problem-23/
 
 ;; (= (__ [1 2 3 4 5]) [5 4 3 2 1])
 ;; (= (__ (sorted-set 5 7 2 7)) '(7 5 2))
