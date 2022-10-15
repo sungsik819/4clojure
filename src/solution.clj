@@ -1,9 +1,3 @@
-;; problem 42 - Factorial Fun
-(defn myfact [x]
-  (apply * (range 1 (inc x))))
-
-(myfact 8)
-
 ;; problem 43 - Reverse Interleave
 
 ;; problem 44 - Rotate Sequence
