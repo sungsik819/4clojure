@@ -1,5 +1,3 @@
-;; problem 43 - Reverse Interleave
-
 ;; problem 44 - Rotate Sequence
 (concat [1 2 3 4 5] [1 2 3 4 5])
 (take (count [1 2 3 4 5] (drop (mod 2 (count [1 2 3 4 5])) (cycle [1 2 3 4 5]))
