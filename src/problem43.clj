@@ -1,6 +1,6 @@
 (ns problem43)
 
-;; problem 42 - Reverse Interleave
+;; problem 43 - Reverse Interleave
 ;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-43/
 
 ;; (= (__ [1 2 3 4 5 6] 2) '((1 3 5) (2 4 6)))
