@@ -1,27 +1,3 @@
-;; problem 44 - Rotate Sequence
-(concat [1 2 3 4 5] [1 2 3 4 5])
-(take (count [1 2 3 4 5] (drop (mod 2 (count [1 2 3 4 5])) (cycle [1 2 3 4 5]))
-             
-;; problem 45
-(take 5 (iterate #(+ 3 %) 1))
-;; problem 46
-(defn fu [f]
-  (defn fn2 [x y]
-    (f y x))
-  fn2)
-
-((fu nth) 2 [1 2 3 4 5])
-
-;; problem 48 - Intro to some
-(some #{2 7 6} [5 6 7 8])
-(some #(when (even? %) %) [5 6 7 8])
-
-;; problem 49
-(defn mysplit-at [n l]
-   (list (take n l) (drop n l)))
-
-(mysplit-at 2 [[1 2] [3 4] [5 6]])
-
 ;; problem 50 - Split by Type
 
 ;; problem 51
