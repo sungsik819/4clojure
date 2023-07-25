@@ -1,20 +1,3 @@
-;; problem 50 - Split by Type
-
-;; problem 51
-(defn le [x]
-  (let [[a b & c :as d] [1 2 3 4 5]]
-    [a b c d]))
-
-(le 2)
-
-;; problem 54 - Partition a Sequence
-(defn mypartition [x coll]
-  (loop [result [] coll2 coll]
-    (if (> x (count coll2)) result
-        (recur (conj result (take x coll2)) (drop x coll2)))))
-
-(mypartition 3 (range 9))
-(mypartition 3 (range 8))
 ;; problem 56 - Find Distinct Items
 (some true? (map #(= % 1) [2 3 1 4]))
 
