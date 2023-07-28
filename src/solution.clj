@@ -1,11 +1,3 @@
-;; problem 56 - Find Distinct Items
-(some true? (map #(= % 1) [2 3 1 4]))
-
-(defn mydistinct [coll]
-  (reduce (fn [acc num] (if (some true? (map #(= % num) acc)) acc
-                          (conj acc num))) [] coll))
-
-(mydistinct [1 2 1 3 1 2 4])
 ;; problem 58 - Function Composition
 
 ;; problem 59 - Juxtaposition
