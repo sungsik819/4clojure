@@ -1,5 +1,3 @@
-;; problem 58 - Function Composition
-
 ;; problem 59 - Juxtaposition
 (defn myjuxt [a b &[c]]
   (fn [& x]
