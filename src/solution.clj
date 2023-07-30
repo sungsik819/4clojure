@@ -1,12 +1,3 @@
-;; problem 59 - Juxtaposition
-(defn myjuxt [a b &[c]]
-  (fn [& x]
-    (if c
-      (vector (apply a x) (apply b x) (apply c x))
-      (vector (apply a x) (apply b x)))))
-
-((myjuxt + max min) 2 3 5 1 6 4)
-
 ;; problem 62
 (defn iter [f x]
   (lazy-seq (cons x (iter f (f x)))))
