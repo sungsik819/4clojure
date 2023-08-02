@@ -1,12 +1,3 @@
-;; problem 62
-(defn iter [f x]
-  (lazy-seq (cons x (iter f (f x)))))
-
-(iter #(* 2 %) 1)
-   
-
-(take 5 (iter #(* 2 %) 1))
-
 ;; problem 63 - Group Sequence - 다시 풀어보기
 (defn my-group-by [f coll]
   (into {} (map #(vector (f (first %)) (vec %)) (partition-by f (sort coll)))))
