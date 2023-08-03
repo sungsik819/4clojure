@@ -1,9 +1,3 @@
-;; problem 63 - Group Sequence - 다시 풀어보기
-(defn my-group-by [f coll]
-  (into {} (map #(vector (f (first %)) (vec %)) (partition-by f (sort coll)))))
-
-(my-group-by #(> % 5) [1 3 6 8])
-(my-group-by #(apply / %) [[1 2] [2 4] [4 6] [3 6]])
 ;; problem 66
 (defn gcd [x y]
   (if (= y 0) x
