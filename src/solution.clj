@@ -1,12 +1,3 @@
-;; problem 66
-(defn gcd [x y]
-  (if (= y 0) x
-      (gcd y (rem x y))))
-
-(gcd 2 4)
-(gcd 10 5)
-(gcd 5 7)
-
 ;; problem 81
 (defn inter[a b]
   (set (sort (filter (fn [x] (not (nil? x))) (mapcat (fn [x] (map (fn [y] (if (= x y) y)) b)) a)))))
