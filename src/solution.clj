@@ -1,35 +1,3 @@
-;; problem 81
-(defn inter[a b]
-  (set (sort (filter (fn [x] (not (nil? x))) (mapcat (fn [x] (map (fn [y] (if (= x y) y)) b)) a)))))
-;; (mapcat (fn [x] (map (fn [y] (if (= x y) y)) b)) a) => 같은 숫자가 있으면 그 숫자 표시 없으면 nil 표시
-;; (set (sort (filter (fn [x] (not (nil? x))) => nil인 항목은 제외하고 sort 후 set 으로 만든다.
-(inter #{0 1 2 3} #{2 3 4 5})
-
-;; problem 88 - Symmetric Difference
-(apply disj #{1 2 3 4 5 6} #{1 3 5 7})
-(apply disj #{1 3 5 7} #{1 2 3 4 5 6})
-(defn symdiff [set1 set2]
-  (set (concat (apply disj set1 set2) (apply disj set2 set1))))
-
-(symdiff #{1 2 3 4 5 6} #{1 3 5 7})
-(symdiff #{:a :b :c} #{})
-
-;; problem 90 - Cartesian Product
-(defn cartp [a b]
-  (into #{} (mapcat (fn [x] (map (fn [y] (vector x y)) b)) a)))
-
-(cartp #{1 2 3} #{4 5})
-(= (cartp #{1 2 3} #{4 5})  #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]})
-
-;; problem 95 - To Tree, or not to Tree
-(defn problem95 [col]
-  (or (nil? col)
-      (and (coll? col)
-           (= 3 (count col))
-           (every? problem95 (rest col)))))
-
-;; other
-
 ;; problem 97 - Pascal's Triangle
 (defn pascaltriangle [n]
   (if (= n 1) [1]
