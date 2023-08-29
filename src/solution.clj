@@ -1,30 +1,3 @@
-;; problem 100 - Least Common Multiple
-;; 각 수의 곱 / 최대 공약수 = 최소 공배수
-(defn gcd [x y]
-  (let [a (max x y)
-        b (min x y)
-        m (mod a b)]
-    (if (zero? m) b
-        (gcd b m))))
-
-(defn lcm [a b]
-  (/ (* a b) (gcd a b)))
-
-(reduce lcm [3/4 1/6])
-
-(fn [& args]
-  (letfn [(gcd [x y]
-            (let [a (max x y)
-                  b (min x y)
-                  m (mod a b)]
-              (if (zero? m) b
-                  (recur b m))))
-          (lcm [a b]
-            (/ (* a b) (gcd a b)))]
-    (reduce lcm args)))
-
-
-
 ;; problem 107
 (apply * (take 2 (iterate identity 2)))
 
