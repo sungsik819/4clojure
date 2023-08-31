@@ -1,27 +1,3 @@
-;; problem 107
-(apply * (take 2 (iterate identity 2)))
-
-(defn sq [x]
-  (fn [y]
-    (apply * (take x (iterate identity y)))))
-
-((sq 2) 16)
-
-;; problem 118 - Re-implement Map
-;; not lazy
-(defn mymap [f coll]
-  (reduce (fn [acc x] (conj acc (f x))) [] coll))
-
-;; solved
-(defn mymap [f coll]
- (if (seq coll) (lazy-seq (cons (f (first coll)) (mymap f (rest coll))))))
-  
-(mymap inc [2 3 4 5 6])
-
-(->> (mymap inc (range))
-     (drop (dec 1000000))
-     (take 2))
-
 ;; problem 120 - Sum of square of digits
 ;; 0 1 2 3  4  5  6  7  8  9
 ;; 0 1 4 9 16 25 36 49 64 81 => 8
