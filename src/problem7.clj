@@ -1,6 +1,8 @@
 (ns problem7)
 
-;; problem 7 - Vectors: conj
+;; problem 07 - Vectors: conj
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-07/
+
 ;; (= __ (conj [1 2 3] 4))
 ;; (= __ (conj [1 2] 3 4))
 
