@@ -1,7 +1,9 @@
 (ns problem8 
   (:require clojure.set))
 
-;; problem 8 - Intro to Sets
+;; problem 08 - Intro to Sets
+;; blug-url : https://sungsik819.github.io/posts/4clojure/problem-08/
+
 ;; (= __ (set '(:a :a :b :c :c :c :c :d :d)))
 ;; (= __ (clojure.set/union #{:a :b :c} #{:b :c :d}))
 
